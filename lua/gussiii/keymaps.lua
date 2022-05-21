@@ -8,9 +8,6 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
-
-
-
 ---- Normal ----
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
