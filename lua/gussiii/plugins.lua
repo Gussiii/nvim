@@ -85,9 +85,6 @@ return packer.startup(function(use)
   use 'creativenull/diagnosticls-configs-nvim'
   use 'vim-scripts/AutoComplPop'
 
--- Dashboard
-  use 'glepnir/dashboard-nvim'
-
 -- File Management
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -115,7 +112,6 @@ return packer.startup(function(use)
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
 --
-  use 'tokyonight.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
