@@ -1,15 +1,30 @@
-vim.opt.relativenumber=true
-vim.opt.autoindent=true
-vim.opt.tabstop=4
-vim.opt.shiftwidth=4
-vim.opt.smarttab=true
-vim.opt.softtabstop=4
-vim.opt.mouse="a"
-vim.opt.backspace=indent,eol,start
+-- https://www.youtube.com/watch?v=hY5-Q6NxQgY
+-- https://github.com/LunarVim/Neovim-from-scratch/tree/01-options
+
+o = vim.opt
+
+o.relativenumber=true
+o.autoindent=true
+o.tabstop=4
+o.shiftwidth=4
+o.smarttab=true
+o.softtabstop=4
+o.mouse="a"
+o.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+o.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+o.splitright = true                       -- force all vertical splits to go to the right of current window
+o.undofile = true                         -- enable persistent undo
+o.wrap = false                            -- display lines as one long line
+
 
 -- Conditional Options for file types
 vim.api.nvim_create_autocmd('FileType',{
     pattern = 'markdown',
     command = 'setlocal spell'
+})
+
+vim.api.nvim_create_autocmd('FileType',{
+    pattern = 'markdown',
+    command = 'setlocal wrap'
 })
 
