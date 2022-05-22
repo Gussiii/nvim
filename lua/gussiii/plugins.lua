@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use 'preservim/nerdtree'  --File nav
   use 'tpope/vim-commentary' --Easy comment
   use 'hrsh7th/nvim-cmp' --Auto compleat
-  use 'karb94/neoscroll.nvim' --Smooth Scrolling
+  -- use {'karb94/neoscroll.nvim', config=get_config("neoscroll")} --Smooth Scrolling
   use 'sheerun/vim-polyglot'
 
 --Windows
@@ -74,7 +74,7 @@ return packer.startup(function(use)
   use 'GustavoKatel/sidebar.nvim'
 
 -- Status Line
-  use 'hoob3rt/lualine.nvim'
+  use {'hoob3rt/lualine.nvim', config=get_config("lualine")}
   use 'kyazdani42/nvim-web-devicons'
 
 -- Language Server Protocol
@@ -86,12 +86,10 @@ return packer.startup(function(use)
   use 'vim-scripts/AutoComplPop'
 
 -- File Management
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use {'nvim-telescope/telescope.nvim', config=get_config('telescope')}
   use {'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
   use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'sudormrfbin/cheatsheet.nvim'
+  -- use 'sudormrfbin/cheatsheet.nvim'
   use 'kyazdani42/nvim-tree.lua'
   use 'ThePrimeagen/harpoon'
 
@@ -112,6 +110,15 @@ return packer.startup(function(use)
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
 --
+
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = get_config('alpha')
+  }
+
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
