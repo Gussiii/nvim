@@ -109,8 +109,8 @@ return packer.startup(function(use)
 
 -- Markdown Files
   use 'godlygeek/tabular'
-  use 'tpope/vim-markdown'
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use 'preservim/vim-markdown'
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 --Color
   use "lunarvim/colorschemes"
