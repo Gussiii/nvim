@@ -1,3 +1,5 @@
-require "gussiii.options"
-require "gussiii.keymaps"
-require "gussiii.plugins"
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "config.cmp"
+require "config.lsp"

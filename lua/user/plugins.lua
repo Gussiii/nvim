@@ -49,8 +49,6 @@ function get_config(name)
 	return string.format('require("config/%s")', name)
   end
 
-
-
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
@@ -64,26 +62,34 @@ return packer.startup(function(use)
   use 'tpope/vim-commentary' --Easy comment
   use 'hrsh7th/nvim-cmp' --Auto compleat
   -- use {'karb94/neoscroll.nvim', config=get_config("neoscroll")} --Smooth Scrolling
-  use 'sheerun/vim-polyglot'
+  -- use 'sheerun/vim-polyglot'
+
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 --Windows
   use 'wesQ3/vim-windowswap'
   use 'yamatsum/nvim-cursorline'
 
---Side bar
-  use 'GustavoKatel/sidebar.nvim'
-
 -- Status Line
   use {'hoob3rt/lualine.nvim', config=get_config("lualine")}
   use 'kyazdani42/nvim-web-devicons'
 
--- Language Server Protocol
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use 'folke/trouble.nvim'
-  use 'onsails/lspkind-nvim'
-  use 'creativenull/diagnosticls-configs-nvim'
-  use 'vim-scripts/AutoComplPop'
 
 -- File Management
   use {'nvim-telescope/telescope.nvim', config=get_config('telescope')}
@@ -99,25 +105,21 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'miyakogi/conoline.vim'
 
--- Suggest 
-  use {'gelguy/wilder.nvim', cmd=':UpdateRemotePlugins' }
-  use 'stevearc/dressing.nvim'
-  --use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
 -- Markdown Files
   use 'godlygeek/tabular'
   use 'tpope/vim-markdown'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
---
+--Color
+  use "lunarvim/colorschemes"
+  use "folke/tokyonight.nvim"
 
+-- Dashboard 
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = get_config('alpha')
   }
-
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
