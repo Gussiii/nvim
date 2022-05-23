@@ -129,6 +129,13 @@ return packer.startup(function(use)
   run=':TSUpdate',  
   config=get_config('treesitter')}
   use 'p00f/nvim-ts-rainbow' 
+
+  use {
+    'gelguy/wilder.nvim',
+    config = get_config('wilder')
+  }
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
