@@ -103,7 +103,8 @@ return packer.startup(function(use)
 
 -- Bufferline
   use 'dstein64/vim-startuptime'
-  use 'akinsho/nvim-bufferline.lua'
+  use {'akinsho/nvim-bufferline.lua', config=get_config('bufferline')}
+  use "moll/vim-bbye"
   use 'windwp/nvim-autopairs'
   use 'miyakogi/conoline.vim'
 
