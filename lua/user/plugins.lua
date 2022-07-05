@@ -60,7 +60,6 @@ return packer.startup(function(use)
   use 'jiangmiao/auto-pairs' --auto colose []{}
   use 'preservim/nerdtree'  --File nav
   use 'tpope/vim-commentary' --Easy comment
-  use 'hrsh7th/nvim-cmp' --Auto compleat
   -- use {'karb94/neoscroll.nvim', config=get_config("neoscroll")} --Smooth Scrolling
   -- use 'sheerun/vim-polyglot'
 
@@ -95,7 +94,6 @@ return packer.startup(function(use)
   use {'nvim-telescope/telescope.nvim', config=get_config('telescope')}
   use {'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
   use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   -- use 'sudormrfbin/cheatsheet.nvim'
   use 'kyazdani42/nvim-tree.lua'
@@ -110,8 +108,16 @@ return packer.startup(function(use)
 
 -- Markdown Files
   use 'godlygeek/tabular'
-  use 'preservim/vim-markdown'
+  -- use 'preservim/vim-markdown'
+  use 'gabrielelana/vim-markdown'
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+-- Latex
+  -- use 'emakman/neovim-latex-previewer'
+  -- use ({'xuhdev/vim-latex-live-preview' , setup = function() vim.g.mkdp_filetypes = { "tex" } end, ft = { "tex" }, })
+  -- use 'xuhdev/vim-latex-live-preview'
+
+
 
 --Color
   use "lunarvim/colorschemes"
