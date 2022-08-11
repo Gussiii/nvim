@@ -74,9 +74,8 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
-
   -- snippets
-  -- use "L3MON4D3/LuaSnip" --snippet engine
+  use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 --Windows
@@ -86,7 +85,6 @@ return packer.startup(function(use)
 -- Status Line
   use {'hoob3rt/lualine.nvim', config=get_config("lualine")}
   use 'kyazdani42/nvim-web-devicons'
-
 
 -- File Management
   use {'nvim-telescope/telescope.nvim', config=get_config('telescope')}
