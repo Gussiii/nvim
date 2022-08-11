@@ -7,16 +7,16 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+	PACKER_BOOTSTRAP = fn.system {
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	}
+	print "Installing packer close and reopen Neovim..."
+	vim.cmd [[packadd packer.nvim]]
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -31,127 +31,119 @@ vim.cmd [[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  return
+	return
 end
 
 -- Have packer use a popup window
 packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
+	display = {
+		open_fn = function()
+			return require("packer.util").float { border = "rounded" }
+		end,
+	},
 }
 
 -- get the configuration file for each plugin
 -- expects the name of the config file
 function get_config(name)
 	return string.format('require("config/%s")', name)
-  end
+end
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+	-- My plugins here
+	use "wbthomason/packer.nvim" -- Have packer manage itself
+	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
---General
-  use 'tpope/vim-commentary' --Easy comment
-  use {'windwp/nvim-autopairs', config=get_config("autopairs")}
+	--General
+	--use 'tpope/vim-commentary' --Easy comment
+	use "numToStr/Comment.nvim"
+	use { "JoosepAlviste/nvim-ts-context-commentstring", config = get_config("comments") }
+	use { 'windwp/nvim-autopairs', config = get_config("autopairs") }
+	use {"phaazon/hop.nvim",
+		branch="v2", 
+		config=get_config("hop")
+	}
 
-  -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
+	-- cmp plugins
+	use "hrsh7th/nvim-cmp" -- The completion plugin
+	use "hrsh7th/cmp-buffer" -- buffer completions
+	use "hrsh7th/cmp-path" -- path completions
+	use "hrsh7th/cmp-cmdline" -- cmdline completions
+	use "saadparwaiz1/cmp_luasnip" -- snippet completions
+	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-nvim-lua"
 
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+	-- LSP
+	use "neovim/nvim-lspconfig" -- enable LSP
+	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+	-- Null-ls
+	use { "jose-elias-alvarez/null-ls.nvim", config = get_config("null-ls") }
 
---Windows
-  use 'wesQ3/vim-windowswap'
-  use 'yamatsum/nvim-cursorline'
+	-- snippets
+	use "L3MON4D3/LuaSnip" --snippet engine
+	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
--- Status Line
-  use {'hoob3rt/lualine.nvim', config=get_config("lualine")}
-  use 'kyazdani42/nvim-web-devicons'
+	--Windows
+	use 'yamatsum/nvim-cursorline'
 
--- File Management
-  use {'nvim-telescope/telescope.nvim', config=get_config('telescope')}
-  use {'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-telescope/telescope-media-files.nvim'
-  -- use 'sudormrfbin/cheatsheet.nvim'
-  use 'ThePrimeagen/harpoon'
-    
-  use {
-    'kyazdani42/nvim-tree.lua', 
-    requires = {'kyazdani42/nvim-web-devicons'}, 
-    config = function()
-      require("nvim-tree").setup()
-    end
-  }
-  -- use 'kyazdani42/nvim-tree.lua'
--- Bufferline
-  use 'dstein64/vim-startuptime'
-  use {'akinsho/nvim-bufferline.lua', config=get_config('bufferline')}
-  use "moll/vim-bbye"
+	-- Status Line
+	use { 'hoob3rt/lualine.nvim', config = get_config("lualine") }
+	use 'kyazdani42/nvim-web-devicons'
 
-  use 'miyakogi/conoline.vim'
-
--- Markdown Files
-  use 'godlygeek/tabular'
-  use 'gabrielelana/vim-markdown'
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-
--- Latex
-  -- use 'emakman/neovim-latex-previewer'
-  -- use ({'xuhdev/vim-latex-live-preview' , setup = function() vim.g.mkdp_filetypes = { "tex" } end, ft = { "tex" }, })
-  -- use 'xuhdev/vim-latex-live-preview'
-
--- TuggleTerm
-   use {"akinsho/toggleterm.nvim", config=get_config('toggleterm')}
+	-- File Management
+	use { 'nvim-telescope/telescope.nvim', config = get_config('telescope') }
+	use { 'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
+	use 'nvim-telescope/telescope-file-browser.nvim'
+	use 'nvim-telescope/telescope-media-files.nvim'
+	use 'ThePrimeagen/harpoon'
+    use 'kyazdani42/nvim-tree.lua'
 
 
---Color
-  -- use "lunarvim/colorschemes"
-  use "folke/tokyonight.nvim"
+	-- Bufferline
+	use 'dstein64/vim-startuptime'
+	use { 'akinsho/nvim-bufferline.lua', config = get_config('bufferline') }
+	use "moll/vim-bbye"
 
--- Dashboard
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    config = get_config('alpha')
-  }
+	use 'miyakogi/conoline.vim'
 
-  --TreeSitter
-  use {"nvim-treesitter/nvim-treesitter", 
-  run=':TSUpdate',  
-  config=get_config('treesitter')}
-  
-  use 'p00f/nvim-ts-rainbow' 
-
-  use {
-    'gelguy/wilder.nvim',
-    config = get_config('wilder')
-  }
+	-- Markdown Files
+	use 'godlygeek/tabular'
+	use 'gabrielelana/vim-markdown'
+	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+		setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+	-- TuggleTerm
+	use { "akinsho/toggleterm.nvim", config = get_config('toggleterm') }
+
+	--Color
+	-- use "lunarvim/colorschemes"
+	use "folke/tokyonight.nvim"
+
+	-- Dashboard
+	use {
+		'goolord/alpha-nvim',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		config = get_config('alpha')
+	}
+
+	--TreeSitter
+	use { "nvim-treesitter/nvim-treesitter",
+		run = ':TSUpdate',
+		config = get_config('treesitter') }
+	use 'p00f/nvim-ts-rainbow'
+
+	use {
+		'gelguy/wilder.nvim',
+		config = get_config('wilder')
+	}
+
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)
-
-
-
