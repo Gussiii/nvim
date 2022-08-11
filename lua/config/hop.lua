@@ -9,7 +9,4 @@ hop.setup({
 	jump_on_sole_occurrence = true,
 	case_insensitive = true,
 	multi_windows = true,
-	
-	
-
 })
