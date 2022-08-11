@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
 --General
-  use 'preservim/nerdtree'  --File nav
   use 'tpope/vim-commentary' --Easy comment
   use {'windwp/nvim-autopairs', config=get_config("autopairs")}
 
@@ -92,9 +91,16 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-file-browser.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   -- use 'sudormrfbin/cheatsheet.nvim'
-  use 'kyazdani42/nvim-tree.lua'
   use 'ThePrimeagen/harpoon'
-
+    
+  use {
+    'kyazdani42/nvim-tree.lua', 
+    requires = {'kyazdani42/nvim-web-devicons'}, 
+    config = function()
+      require("nvim-tree").setup()
+    end
+  }
+  -- use 'kyazdani42/nvim-tree.lua'
 -- Bufferline
   use 'dstein64/vim-startuptime'
   use {'akinsho/nvim-bufferline.lua', config=get_config('bufferline')}
@@ -125,10 +131,11 @@ return packer.startup(function(use)
     config = get_config('alpha')
   }
 
-  -- TreeSitter
+  --TreeSitter
   use {"nvim-treesitter/nvim-treesitter", 
   run=':TSUpdate',  
   config=get_config('treesitter')}
+  
   use 'p00f/nvim-ts-rainbow' 
 
   use {
