@@ -94,10 +94,10 @@ return packer.startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 
 	-- File Management
+	use 'nvim-telescope/telescope-media-files.nvim'
 	use { 'nvim-telescope/telescope.nvim', config = get_config('telescope') }
 	use { 'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
 	use 'nvim-telescope/telescope-file-browser.nvim'
-	use 'nvim-telescope/telescope-media-files.nvim'
 	use 'ThePrimeagen/harpoon'
     use 'kyazdani42/nvim-tree.lua'
 

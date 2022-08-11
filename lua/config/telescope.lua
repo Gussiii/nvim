@@ -3,11 +3,24 @@ if not status_ok then
   return
 end
 
-telescope.load_extension('media_files')
+--telescope.load_extension('media_files')
 
 local actions = require "telescope.actions"
 
 telescope.setup {
+
+
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"webp", "jpg", "jpeg"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    }
+  },
+
+
+
   defaults = {
 
     prompt_prefix = " ",
@@ -29,7 +42,7 @@ telescope.setup {
 
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
-        ["<C-v>"] = actions.select_vertical,
+        ["<S-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
 
         ["<C-u>"] = actions.preview_scrolling_up,
@@ -88,16 +101,5 @@ telescope.setup {
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
-  extensions = {
-require'telescope'.setup {
-  extensions = {
-    media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = {"png", "webp", "jpg", "jpeg"},
-      find_cmd = "rg" -- find command (defaults to `fd`)
-    }
-  },
-}
-  },
+  
 }
