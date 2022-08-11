@@ -57,11 +57,9 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
 --General
-  use 'jiangmiao/auto-pairs' --auto colose []{}
   use 'preservim/nerdtree'  --File nav
   use 'tpope/vim-commentary' --Easy comment
-  -- use {'karb94/neoscroll.nvim', config=get_config("neoscroll")} --Smooth Scrolling
-  -- use 'sheerun/vim-polyglot'
+  use {'windwp/nvim-autopairs', config=get_config("autopairs")}
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -78,7 +76,7 @@ return packer.startup(function(use)
 
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
+  -- use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 --Windows
@@ -103,12 +101,11 @@ return packer.startup(function(use)
   use 'dstein64/vim-startuptime'
   use {'akinsho/nvim-bufferline.lua', config=get_config('bufferline')}
   use "moll/vim-bbye"
-  use 'windwp/nvim-autopairs'
+
   use 'miyakogi/conoline.vim'
 
 -- Markdown Files
   use 'godlygeek/tabular'
-  -- use 'preservim/vim-markdown'
   use 'gabrielelana/vim-markdown'
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
@@ -120,7 +117,7 @@ return packer.startup(function(use)
 
 
 --Color
-  use "lunarvim/colorschemes"
+  -- use "lunarvim/colorschemes"
   use "folke/tokyonight.nvim"
 
 -- Dashboard
@@ -129,7 +126,6 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = get_config('alpha')
   }
-
 
   -- TreeSitter
   use {"nvim-treesitter/nvim-treesitter", 
