@@ -118,6 +118,8 @@ return packer.startup(function(use)
   -- use ({'xuhdev/vim-latex-live-preview' , setup = function() vim.g.mkdp_filetypes = { "tex" } end, ft = { "tex" }, })
   -- use 'xuhdev/vim-latex-live-preview'
 
+-- TuggleTerm
+   use {"akinsho/toggleterm.nvim", config=get_config('toggleterm')}
 
 
 --Color
