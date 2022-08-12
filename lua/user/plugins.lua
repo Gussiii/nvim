@@ -61,9 +61,9 @@ return packer.startup(function(use)
 	use "numToStr/Comment.nvim"
 	use { "JoosepAlviste/nvim-ts-context-commentstring", config = get_config("comments") }
 	use { 'windwp/nvim-autopairs', config = get_config("autopairs") }
-	use {"phaazon/hop.nvim",
-		branch="v2", 
-		config=get_config("hop")
+	use { "phaazon/hop.nvim",
+		branch = "v2",
+		config = get_config("hop")
 	}
 
 	-- cmp plugins
@@ -99,8 +99,7 @@ return packer.startup(function(use)
 	use { 'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
 	use 'nvim-telescope/telescope-file-browser.nvim'
 	use 'ThePrimeagen/harpoon'
-    use 'kyazdani42/nvim-tree.lua'
-
+	use 'kyazdani42/nvim-tree.lua'
 
 	-- Bufferline
 	use 'dstein64/vim-startuptime'
@@ -140,7 +139,7 @@ return packer.startup(function(use)
 		'gelguy/wilder.nvim',
 		config = get_config('wilder')
 	}
-
+	use 'simrat39/symbols-outline.nvim'
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
