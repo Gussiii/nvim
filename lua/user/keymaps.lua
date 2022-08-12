@@ -80,7 +80,7 @@ keymap("n", "<leader>t",":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>c",":Format<cr>", opts)
 
 -- Hop
-keymap("n", "<leader>h", ":HopWord<cr>", opts)
+keymap("n", "<leader>hh", ":HopWord<cr>", opts)
 keymap("n", "<leader>hl", ":HopWordCurrentLine<cr>", opts)
 keymap("n", "<leader>ha", ":HopAnywhere<cr>", opts)
 -- SnipRun
