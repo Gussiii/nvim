@@ -7,7 +7,7 @@ sniprun.setup({
 	-- selected_interpreters = { "Python3_jupyter" },
     repl_enable = {'Python3_original'},
 	display = {
-		-- "VirtualTextOk",
+		"VirtualTextOk",
 		"VirtualTextErr",
 		-- "LongTempFloatingWindow",
 		"TerminalWithCode"
