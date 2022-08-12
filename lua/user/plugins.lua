@@ -89,6 +89,11 @@ return packer.startup(function(use)
 	--Windows
 	use 'yamatsum/nvim-cursorline'
 
+	--Sniprun
+	use {'michaelb/sniprun', 
+		run = 'bash ./install.sh', 
+		config=get_config('sniprun')}
+
 	-- Status Line
 	use { 'hoob3rt/lualine.nvim', config = get_config("lualine") }
 	use 'kyazdani42/nvim-web-devicons'
@@ -139,6 +144,7 @@ return packer.startup(function(use)
 		'gelguy/wilder.nvim',
 		config = get_config('wilder')
 	}
+
 	use 'simrat39/symbols-outline.nvim'
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

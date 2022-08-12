@@ -33,8 +33,8 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 -- Resize with arrows
 keymap("n", "<S-Up>", ":resize -2<CR>", opts)
 keymap("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<S-Right>", ":vertical resize -2<CR>", opts)
+keymap("n", "<S-Left>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-o>", ":bnext<CR>", opts)
@@ -80,7 +80,12 @@ keymap("n", "<leader>t",":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>c",":Format<cr>", opts)
 
 -- Hop
-keymap("n", "<leader>hh", ":HopWord<cr>", opts)
+keymap("n", "<leader>h", ":HopWord<cr>", opts)
 keymap("n", "<leader>hl", ":HopWordCurrentLine<cr>", opts)
 keymap("n", "<leader>ha", ":HopAnywhere<cr>", opts)
+
+keymap("n", "<leader>r",":SnipRun<cr>", opts)
+keymap("v", "<leader>r",":'<,'>SnipRun<cr>", opts)
+
+
 
