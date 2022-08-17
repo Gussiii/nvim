@@ -47,6 +47,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("i", "<C-s>", "<Esc>:w<cr>a", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -80,7 +81,7 @@ keymap("n", "<leader>t",":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>c",":Format<cr>", opts)
 
 -- Hop
-keymap("n", "<leader>h", ":HopWord<cr>", opts)
+keymap("n", "<leader>hh", ":HopWord<cr>", opts)
 keymap("n", "<leader>hl", ":HopWordCurrentLine<cr>", opts)
 keymap("n", "<leader>ha", ":HopAnywhere<cr>", opts)
 -- SnipRun
