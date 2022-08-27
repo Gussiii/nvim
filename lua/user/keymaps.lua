@@ -84,9 +84,11 @@ keymap("n", "<leader>c",":Format<cr>", opts)
 keymap("n", "<leader>hh", ":HopWord<cr>", opts)
 keymap("n", "<leader>hl", ":HopWordCurrentLine<cr>", opts)
 keymap("n", "<leader>ha", ":HopAnywhere<cr>", opts)
--- SnipRun
-keymap("n", "<leader>r",":SnipRun<cr>", opts)
-keymap("v", "<leader>r",":'<,'>SnipRun<cr>", opts)
+
+-- ToggleTerminal
+keymap("n", "<leader>r",":ToggleTermSendCurrentLine<cr>", opts)
+keymap("v", "<leader>r",":'<,'>ToggleTermSendVisualLines<cr>", opts)
+keymap("n", "<leader>tj", ":ToggleTerm size=60 direction=vertical<cr>", opts)
 
 
 

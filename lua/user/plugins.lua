@@ -90,9 +90,9 @@ return packer.startup(function(use)
 	use 'yamatsum/nvim-cursorline'
 
 	--Sniprun
-	use {'michaelb/sniprun', 
-		run = 'bash ./install.sh', 
-		config=get_config('sniprun')}
+	--[[ use {'michaelb/sniprun',  ]]
+	--[[ 	run = 'bash ./install.sh',  ]]
+	--[[ 	config=get_config('sniprun')} ]]
 
 	-- Status Line
 	use { 'hoob3rt/lualine.nvim', config = get_config("lualine") }
@@ -118,7 +118,6 @@ return packer.startup(function(use)
 	use 'gabrielelana/vim-markdown'
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
 		setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-
 
 	-- TuggleTerm
 	use { "akinsho/toggleterm.nvim", config = get_config('toggleterm') }
