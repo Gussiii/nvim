@@ -16,8 +16,8 @@ o.splitright = true -- force all vertical splits to go to the right of current w
 o.undofile = true -- enable persistent undo
 o.wrap = false -- display lines as one long line
 o.hlsearch = true -- highlight all matches on previous search pattern
-o.termguicolors = true, -- set term gui colors (most terminals support this)
-
+o.termguicolors = true -- set term gui colors (most terminals support this)
+o.scrolloff = 5
 
 -- Conditional Options for file types
 vim.api.nvim_create_autocmd('FileType', {

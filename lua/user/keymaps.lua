@@ -76,19 +76,19 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Telescope --
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 -- Nvim Tree ---
-keymap("n", "<leader>t",":NvimTreeToggle<cr>", opts)
+--[[ keymap("n", "<leader>t",":NvimTreeToggle<cr>", opts) ]]
 -- Null-ls ---
 keymap("n", "<leader>c",":Format<cr>", opts)
 
 -- Hop
-keymap("n", "<leader>hh", ":HopWord<cr>", opts)
-keymap("n", "<leader>hl", ":HopWordCurrentLine<cr>", opts)
+keymap("n", "<leader>hl", ":HopWord<cr>", opts)
+keymap("n", "<leader>hh", ":HopWordCurrentLine<cr>", opts)
 keymap("n", "<leader>ha", ":HopAnywhere<cr>", opts)
 
 -- ToggleTerminal
 keymap("n", "<leader>r",":ToggleTermSendCurrentLine<cr>", opts)
 keymap("v", "<leader>r",":'<,'>ToggleTermSendVisualLines<cr>", opts)
 keymap("n", "<leader>tj", ":ToggleTerm size=60 direction=vertical<cr>", opts)
-
+keymap("n", "<leader>tg",":lua _LAZYGIT_TOGGLE()<cr>",opts)
 
 
