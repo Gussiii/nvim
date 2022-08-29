@@ -81,8 +81,6 @@ keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require
 keymap("n", "<leader>c",":Format<cr>", opts)
 
 -- Hop
-keymap("n", "<leader>hl", ":HopWord<cr>", opts)
-keymap("n", "<leader>hh", ":HopWordCurrentLine<cr>", opts)
 keymap("n", "<leader>ha", ":HopAnywhere<cr>", opts)
 
 -- ToggleTerminal
