@@ -99,12 +99,14 @@ return packer.startup(function(use)
 	use 'kyazdani42/nvim-web-devicons'
 
 	-- File Management
-	use 'nvim-telescope/telescope-media-files.nvim'
 	use { 'nvim-telescope/telescope.nvim', config = get_config('telescope') }
 	use { 'nvim-telescope/telescope-fzf-native.nvim', cmd = 'make' }
 	use 'nvim-telescope/telescope-file-browser.nvim'
 	use 'ThePrimeagen/harpoon'
 	use 'kyazdani42/nvim-tree.lua'
+
+	-- Media viewer
+	use {'edluffy/hologram.nvim', config=get_config('hologram')}
 
 	-- Bufferline
 	use 'dstein64/vim-startuptime'
