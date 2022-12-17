@@ -1,6 +1,6 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
-  ensure_installed = {"lua","python","julia"},
+  ensure_installed = {"lua","python","julia","markdown"},
   sync_install = false, 
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {
