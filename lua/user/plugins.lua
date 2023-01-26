@@ -69,13 +69,27 @@ return packer.startup(function(use)
 	}
 
 	-- cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
-	use "hrsh7th/cmp-buffer" -- buffer completions
-	use "hrsh7th/cmp-path" -- path completions
-	use "hrsh7th/cmp-cmdline" -- cmdline completions
-	use "saadparwaiz1/cmp_luasnip" -- snippet completions
-	use "hrsh7th/cmp-nvim-lsp"
-	use "hrsh7th/cmp-nvim-lua"
+	use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        { "hrsh7th/cmp-buffer" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-path" },
+        { "hrsh7th/cmp-nvim-lua" },
+        { "ray-x/cmp-treesitter" },
+        { "hrsh7th/nvim-cmp" },
+        { "hrsh7th/cmp-vsnip" },
+        { "hrsh7th/vim-vsnip" },
+        { "Saecki/crates.nvim" },
+        { "f3fora/cmp-spell" },
+		{ "hrsh7th/cmp-cmdline"},
+		{"saadparwaiz1/cmp_luasnip"}
+
+        -- { "hrsh7th/cmp-cmdline" },
+        --[[ { "tamago324/cmp-zsh" }, ]]
+      },
+      config = function() require "cmp" end,
+    }
 
 	-- LSP
 	use "neovim/nvim-lspconfig" -- enable LSP

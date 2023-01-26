@@ -46,7 +46,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "ne", "<ESC>", opts)
+keymap("i", "yi", "<ESC>", opts)
 keymap("i", "<C-s>", "<Esc>:w<cr>a", opts)
 
 -- Visual --
