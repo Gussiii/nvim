@@ -22,8 +22,14 @@ o.scrolloff = 5
 -- Conditional Options for file types
 vim.api.nvim_create_autocmd('FileType', {
 		pattern = 'markdown',
-		command = 'setlocal spell'
+		command = 'setlocal spell spelllang=en_us'
 	})
+
+vim.api.nvim_create_autocmd('FileType', {
+		pattern = 'markdown',
+		command = 'setlocal spellsuggest+=10'
+	})
+
 
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'markdown',
