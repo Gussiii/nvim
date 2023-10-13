@@ -1,9 +1,7 @@
-local status_ok, toggleterm = pcall(require, "toggleterm")
-
-if not status_ok then
-	return
-end
-
+return {
+"akinsho/toggleterm.nvim",
+config = function ()
+	local toggleterm = require("toggleterm")
 toggleterm.setup({
 	size = 20,
 	open_mapping = [[<C-a>]],
@@ -63,3 +61,7 @@ local python = Terminal:new({ cmd = "python", hidden = true })
 function _PYTHON_TOGGLE()
 	python:toggle()
 end
+
+end
+
+}

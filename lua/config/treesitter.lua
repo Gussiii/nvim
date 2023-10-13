@@ -1,27 +1,24 @@
-local configs = require("nvim-treesitter.configs")
-configs.setup {
-  ensure_installed = {"lua","python","julia","markdown"},
-  sync_install = false, 
-  ignore_install = { "" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+return {
+    "nvim-treesitter/nvim-treesitter",
+    -- automatically update the parsers with every new release of treesitter
+    build = ":TSUpdate",
 
-  },
-  indent = { enable = true, disable = { "yaml" } },
-  require("nvim-treesitter.configs").setup {
-  highlight = {
-      -- ...
-  },
-  -- ...
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    colors = {}, -- table of hex strings
-    termcolors = {} -- table of colour name strings
-    }
-  }
+    -- since treesitter's setup call is `require("nvim-treesitter.configs").setup`,
+    -- instead of `require("nvim-treesitter").setup` like other plugins do, we
+    -- need to tell lazy.nvim which module to via the `main` key
+    main = "nvim-treesitter.configs",
+
+    opts = {
+        highlight = { enable = true }, -- enable treesitter syntax highlighting
+        ensure_installed = {
+            -- auto-install the Treesitter parser for python and related languages
+            "python",
+            "toml",
+            "rst",
+            "ninja",
+            -- needed for formatting code-blockcs inside markdown via conform.nvim
+            "markdown", 
+            "markdown_inline", 
+        },
+    },
 }
