@@ -11,6 +11,7 @@ return {
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    
 
     local keymap = vim.keymap -- for conciseness
 
@@ -70,10 +71,14 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-
    -- configure python server
     lspconfig["pyright"].setup({
       capabilities = capabilities,
+      handlers = {
+        ["textDocument/publishDiagnostics"] = vim.diagnostic.config({
+            virtual_text = false,
+          })
+      },
       on_attach = on_attach,
     })
 

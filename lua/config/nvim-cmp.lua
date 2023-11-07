@@ -121,11 +121,11 @@ return {
         end,
       },
       sources = {
-        { name = "nvim_lsp" },
-        { name = "buffer" },
+        { name = "nvim_lsp"},
+        { name = "buffer"},
+        { name = "luasnip"},
         { name = "path" },
         { name = "nvim_lua" },
-        { name = "luasnip" },
       { name = "spell"}
       },
       confirm_opts = {
