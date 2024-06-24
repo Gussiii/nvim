@@ -109,18 +109,6 @@ return {
         root_dir = util.root_pattern('.git', '.marksman.toml', '_quarto.yml'),
       }
 
-      lspconfig.r_language_server.setup {
-        capabilities = capabilities,
-        flags = lsp_flags,
-        settings = {
-          r = {
-            lsp = {
-              rich_documentation = false,
-            },
-          },
-        },
-      }
-
       lspconfig.cssls.setup {
         capabilities = capabilities,
         flags = lsp_flags,
@@ -131,10 +119,6 @@ return {
         flags = lsp_flags,
       }
 
-      lspconfig.emmet_language_server.setup {
-        capabilities = capabilities,
-        flags = lsp_flags,
-      }
 
       lspconfig.yamlls.setup {
         capabilities = capabilities,
